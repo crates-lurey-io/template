@@ -1,6 +1,7 @@
 // Rename Cargo.toml.jinja to Cargo.toml.
 file::rename("Cargo.toml.jinja", "Cargo.toml");
 file::rename("Justfile.jinja", "Justfile");
+file::rename("README.md.jinja", "README.md");
 file::rename(".github/workflows/test.yml.jinja", ".github/workflows/test.yml");
 
 // Remove the .generate folder.
