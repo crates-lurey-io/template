@@ -2,7 +2,16 @@
 file::rename("Cargo.toml.jinja", "Cargo.toml");
 file::rename("Justfile.jinja", "Justfile");
 file::rename("README.md.jinja", "README.md");
-file::rename(".github/workflows/test.yml.jinja", ".github/workflows/test.yml");
+file::rename(".github/workflows/test.yml.tmpl", ".github/workflows/test.yml");
+
+let wasm = variable::get("wasm");
+if wasm {
+  let crate_type = variable::get("crate_type");
+  if crate_type != "lib" {
+      abort("Wasm projects must have crate_type = 'lib'.");
+  }
+  file::rename("src/lib.wasm.rs", "src/lib.rs")
+}
 
 // Remove the .generate folder.
 file::delete(".generate");

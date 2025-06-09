@@ -9,6 +9,9 @@ ignore = ["src/main.rs"]
 [conditional.'crate_type == "bin"']
 ignore = ["src/lib.rs"]
 
+[conditional.'!wasm']
+ignore = ["index.html", "src/tests", "src/lib.wasm.rs"]
+
 [hooks]
 post = [".generate/post-script.rhai"]
 
@@ -17,3 +20,4 @@ description = { type = "string", prompt = "Description for the crate?", default 
 publishable = { type = "bool", prompt = "Will this crate be published?", default = true }
 strict_lints = { type = "bool", prompt = "Enable strict lints?", default = true }
 test = { type = "bool", prompt = "Test the result of the generation?", default = false }
+wasm = { type = "bool", prompt = "Generate a WASM-capable crate?", default = false }

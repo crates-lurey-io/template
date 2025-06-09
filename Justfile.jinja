@@ -4,7 +4,20 @@ _default:
 init:
     cargo binstall taplo-cli
     cargo tool --install
+{% if wasm %}
+build-wasm:
+    cargo tool wasm-pack build --target web
 
+serve:
+    cargo just serve-watch &
+    cargo just serve-serve
+
+serve-watch:
+    cargo tool cargo-watch -x 'tool wasm-pack build --dev --target web'
+
+serve-preview:
+    cargo tool miniserve . --index "index.html" -p 8080
+{% endif %}
 lint: lint-check
 
 lint-check:
@@ -41,16 +54,19 @@ doc-gen:
     rm target/doc/.lock
 {% endif %}
 test *ARGS:
-    cargo tool cargo-nextest run {{ARGS}}
+    cargo tool cargo-nextest run {% raw %}{{ARGS}}{% endraw %}
 {% if crate_type == "lib" %}
 test-doc *ARGS:
-    cargo test --doc {{ARGS}}
+    cargo test {% raw %}{{ARGS}}{% endraw %} --doc
+{% endif %}
+{% if wasm %}
+test-wasm *ARGS:
+    cargo tool wasm-pack test {% raw %}{{ARGS}}{% endraw %}
 {% endif %}
 test-all:
     cargo just test --all-features
-    {% if crate_type == "lib" %}
-    @cargo just test-doc --all-features
-    {% endif %}
+    {% if crate_type == "lib" %}cargo just test-doc --all-features{% endif %}
+    {% if wasm %}cargo just test-wasm --chrome --headless{% endif %}
 coverage *ARGS:
     cargo tool cargo-llvm-cov -open
 
