@@ -5,3 +5,5 @@
 # Rust build outputs
 # https://doc.rust-lang.org/cargo/reference/build-cache.html
 /target
+{% if wasm %}# Wasm build outputs
+/pkg{% endif %}

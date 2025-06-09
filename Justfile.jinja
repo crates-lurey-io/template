@@ -10,7 +10,7 @@ build-wasm:
 
 serve:
     cargo just serve-watch &
-    cargo just serve-serve
+    cargo just serve-preview
 
 serve-watch:
     cargo tool cargo-watch -x 'tool wasm-pack build --dev --target web'
@@ -68,7 +68,7 @@ test-all:
     {% if crate_type == "lib" %}cargo just test-doc --all-features{% endif %}
     {% if wasm %}cargo just test-wasm --chrome --headless{% endif %}
 coverage *ARGS:
-    cargo tool cargo-llvm-cov -open
+    cargo tool cargo-llvm-cov --open
 
 coverage-gen:
     cargo tool cargo-llvm-cov --lcov --output-path lcov.info

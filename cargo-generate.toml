@@ -1,6 +1,6 @@
 [template]
 cargo_generate_version = ">=0.23.3"
-include = ["**/*.jinja", "src/lib.rs"]
+include = ["**/*.jinja", "src/lib.rs", ".gitignore"]
 ignore = [".generate/test-generate.toml", "cargo-generate-test.sh"]
 
 [conditional.'crate_type == "lib"']
@@ -10,7 +10,7 @@ ignore = ["src/main.rs"]
 ignore = ["src/lib.rs"]
 
 [conditional.'!wasm']
-ignore = ["index.html", "src/tests", "src/lib.wasm.rs"]
+ignore = ["favicon.ico", "index.html", "src/tests", "src/lib.wasm.rs"]
 
 [hooks]
 post = [".generate/post-script.rhai"]
@@ -20,4 +20,9 @@ description = { type = "string", prompt = "Description for the crate?", default 
 publishable = { type = "bool", prompt = "Will this crate be published?", default = true }
 strict_lints = { type = "bool", prompt = "Enable strict lints?", default = true }
 test = { type = "bool", prompt = "Test the result of the generation?", default = false }
-wasm = { type = "bool", prompt = "Generate a WASM-capable crate?", default = false }
+
+[placeholders.wasm]
+type = "bool"
+prompt = "Generate a WASM-capable crate?"
+default = false
+condition = 'crate_type == "lib"'
