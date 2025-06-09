@@ -1,0 +1,26 @@
+[package]
+name = "{{project-name}}"
+edition = "2024"
+license = "MIT"
+{% if false %}
+# Some projects will never be published, or won't be published anytime soon.
+{% endif %}{% if publishable %}
+description = "{{description}}"
+repository = "https://github.com/{{repo-owner}}/{{project-name}}"
+version = "0.0.0-reserved"
+{% endif %}{% if strict_lints %}
+[lints.clippy]
+pedantic = "deny"
+{% endif %}
+[workspace]
+members = [
+    "tools/cargo-bin",
+]
+
+[workspace.metadata.bin]
+cargo-nextest = { version = "0.9.98", locked = true }
+cargo-llvm-cov = { version = "0.6.16", locked = true }
+just = { version = "1.40.0" }
+
+[dependencies]
+cargo-run-bin = { version = "1.7.4", features = ["cli"] }
