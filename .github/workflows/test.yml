@@ -42,7 +42,7 @@ jobs:
     - name: Install Tools
       uses: taiki-e/install-action@v2
       with:
-        tool: cargo-generate
+        tool: cargo-generate, taplo-cli
 
     - name: Generate a binary crate
       run: |
