@@ -1,6 +1,6 @@
 [template]
 cargo_generate_version = ">=0.23.3"
-include = ["Cargo.toml.jinja", "Justfile.jinja", "src/lib.rs"]
+include = ["**/*.jinja", "src/lib.rs"]
 ignore = [".generate/test-generate.toml", "cargo-generate-test.sh"]
 
 [conditional.'crate_type == "lib"']
