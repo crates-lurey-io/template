@@ -52,9 +52,6 @@ jobs:
     - name: Generate a library crate
       run: |
         ./cargo-generate-test.sh --lib
-
-    - name: Install Node.js
-      uses: actions/setup-node@v4
     
     - name: Generate a WASM crate
       run: |
