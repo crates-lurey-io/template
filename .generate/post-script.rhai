@@ -8,13 +8,13 @@ file::rename(".github/workflows/test.yml.jinja", ".github/workflows/test.yml");
 file::delete(".generate");
 
 // Format.
-system::command("cargo", ["tool", "just", "format-fix"]);
+system::command("cargo", ["just", "format-fix"]);
 
 // Verify everything is groovy if "test" is set
 let test = variable::get("test");
 if test {
-  system::command("cargo", ["tool", "just", "check"]);
-  system::command("cargo", ["tool", "just", "test-all"]);
+  system::command("cargo", ["just", "check"]);
+  system::command("cargo", ["just", "test-all"]);
 };
 
 ()

@@ -13,5 +13,5 @@ Install [`cargo-generate`][], and then run:
 [`cargo-generate`]: https://crates.io/crates/cargo-generate
 
 ```sh
-cargo generate gh:crates.lurey.io/template-crate
+cargo generate gh:crates-lurey-io/template
 ```
