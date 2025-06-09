@@ -3,3 +3,4 @@ description = "Test project"
 publishable = true
 strict_lints = true
 test = true
+wasm = false
