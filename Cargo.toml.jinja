@@ -49,11 +49,3 @@ default = ["console_error_panic_hook"]
 console_error_panic_hook = { version = "0.1.7", optional = true }
 wasm-bindgen = "0.2.100"
 {% endif %}
-[dev-dependencies]
-{% if wasm %}
-wasm-bindgen-test = { version = "0.3.50" }
-[target.'cfg(not(target_arch = "wasm32"))'.dev-dependencies]
-cargo-run-bin = { version = "1.7.4", features = ["cli"] }
-{% else %}
-cargo-run-bin = { version = "1.7.4", features = ["cli"] }
-{% endif %}
