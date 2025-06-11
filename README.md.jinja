@@ -1,6 +1,13 @@
 # {{project-name}}
 
 {{description}}
+{% if publishable %}
+<!--
+[![Test](https://github.com/crates-lurey-io/{{project-name}}/actions/workflows/test.yml/badge.svg)](https://github.com/crates-lurey-io/{{project-name}}/actions/workflows/test.yml)
+[![Crates.io Version](https://img.shields.io/crates/v/{{project-name}})](https://crates.io/crates/{{project-name}})
+[![codecov](https://codecov.io/gh/crates-lurey-io/{{project-name}}/graph/badge.svg?token=Z3VUWA3WYY)](https://codecov.io/gh/crates-lurey-io/{{project-name}})
+-->
+{% endif %}
 
 ## Contributing
 

@@ -2,7 +2,6 @@ _default:
     cargo just --list -u
 
 init:
-    cargo binstall taplo-cli
     cargo tool --install
 {% if wasm %}
 build-wasm:

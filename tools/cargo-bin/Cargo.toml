@@ -7,6 +7,6 @@ license = "MIT"
 pedantic = "deny"
 
 [dependencies]
-cargo-run-bin = { git = "https://github.com/matanlurey/cargo-run-bin.git", rev = "79550dabd941ccc7a12648d369951b7435c22c83", features = [
+cargo-run-bin = { git = "https://github.com/matanlurey/cargo-run-bin.git", rev = "009bfe4423a4d41943126c99f8d62b25a2bcf2db", features = [
   "cli",
 ] }
