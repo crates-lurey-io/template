@@ -49,7 +49,7 @@ doc:
 doc-gen:
     cargo clean --doc
     cargo doc --no-deps
-    echo '<meta http-equiv="refresh" content="0;url=test_project/index.html">' > target/doc/index.html
+    echo '<meta http-equiv="refresh" content="0;url={{project-name}}/index.html">' > target/doc/index.html
     rm target/doc/.lock
 {% endif %}
 test *ARGS:
