@@ -2,17 +2,10 @@
 
 set -e
 
-# Install cargo-generate.
-# Do nothing if already installed.
-# Prefer "cargo binstall" if exists.
-if command -v cargo-generate >/dev/null 2>&1; then
-    echo "cargo-generate is already installed."
-else
-    if command -v cargo-binstall >/dev/null 2>&1; then
-        cargo binstall cargo-generate
-    else
-        cargo install cargo-generate
-    fi
+# Require cargo-generate to be installed.
+if ! command -v cargo-generate >/dev/null 2>&1; then
+    echo "Error: cargo-generate is not installed. Please install it before running this script." >&2
+    exit 1
 fi
 
 # Create a temporary directory to hold the generated projects.

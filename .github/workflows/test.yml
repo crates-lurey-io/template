@@ -40,8 +40,11 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-rust-${{ hashFiles('**/Cargo.lock') }}
 
-    - name: Install Tools
+    - name: Install cargo-binstall
       uses: cargo-bins/cargo-binstall@v1.13.0
+
+    - name: Install cargo-generate
+      uses: taiki-e/install-action@cargo-hack
 
     - name: Export PATH
       run: echo "$HOME/.cargo/bin" >> $GITHUB_PATH
