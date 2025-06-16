@@ -22,7 +22,7 @@ TEMP_DIR=$(mktemp -d)
 echo $TEMP_DIR
 
 # Create a project using the current directory as the template.
-cargo generate \
+cargo-generate \
   --path . \
   --name test_project \
   --destination "$TEMP_DIR" \
