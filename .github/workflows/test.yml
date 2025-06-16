@@ -44,10 +44,7 @@ jobs:
       uses: cargo-bins/cargo-binstall@v1.13.0
 
     - name: Install cargo-generate
-      uses: taiki-e/install-action@cargo-hack
-
-    - name: Export PATH
-      run: echo "$HOME/.cargo/bin" >> $GITHUB_PATH
+      uses: taiki-e/install-action@cargo-generate
 
     - name: Generate a binary crate
       run: |
