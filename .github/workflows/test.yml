@@ -32,6 +32,7 @@ jobs:
       uses: actions/cache@v4
       with:
         path: |
+          ~/.cargo/bin
           ~/.cargo/registry
           ~/.cargo/git
           target
@@ -43,7 +44,7 @@ jobs:
       uses: cargo-bins/cargo-binstall@v1.13.0
 
     - name: Export PATH
-      run: echo "/home/runner/.cargo/bin" >> $GITHUB_PATH
+      run: echo "~/.cargo/bin" >> $GITHUB_PATH
 
     - name: Generate a binary crate
       run: |
