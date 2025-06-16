@@ -32,9 +32,9 @@ jobs:
       uses: actions/cache@v4
       with:
         path: |
-          ~/.cargo/bin
-          ~/.cargo/registry
-          ~/.cargo/git
+          $HOME/.cargo/bin
+          $HOME/.cargo/registry
+          $HOME/.cargo/git
           target
         key: ${{ runner.os }}-rust-${{ hashFiles('**/Cargo.lock') }}
         restore-keys: |
@@ -44,7 +44,7 @@ jobs:
       uses: cargo-bins/cargo-binstall@v1.13.0
 
     - name: Export PATH
-      run: echo "~/.cargo/bin" >> $GITHUB_PATH
+      run: echo "$HOME/.cargo/bin" >> $GITHUB_PATH
 
     - name: Generate a binary crate
       run: |
