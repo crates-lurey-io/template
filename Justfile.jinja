@@ -67,7 +67,7 @@ test-all:
     {% if crate_type == "lib" %}cargo just test-doc --all-features{% endif %}
     {% if wasm %}cargo just test-wasm --chrome --headless{% endif %}
 coverage *ARGS:
-    cargo tool cargo-llvm-cov --lib --no-dev-deps --open
+    cargo tool cargo-llvm-cov --lib --open
 
 coverage-gen:
-    cargo tool cargo-llvm-cov --lib --no-dev-deps --lcov --output-path lcov.info
+    cargo tool cargo-llvm-cov --lib --lcov --output-path lcov.info
