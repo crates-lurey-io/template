@@ -1,6 +1,7 @@
 // Rename Cargo.toml.jinja to Cargo.toml.
 file::rename("Cargo.toml.jinja", "Cargo.toml");
 file::rename("Justfile.jinja", "Justfile");
+file::rename("CHANGELOG.md.jinja", "CHANGELOG.md");
 file::rename("README.md.jinja", "README.md");
 file::rename(".github/workflows/test.yml.tmpl", ".github/workflows/test.yml");
 

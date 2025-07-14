@@ -6,6 +6,9 @@ ignore = [".generate/test-generate.toml", "cargo-generate-test.sh"]
 [conditional.'crate_type == "lib"']
 ignore = ["src/main.rs"]
 
+[conditional.'crate_type != "lib" && publishable']
+ignore = ["src/CHANGELOG.md.jinja"]
+
 [conditional.'crate_type == "bin"']
 ignore = ["src/lib.rs"]
 
