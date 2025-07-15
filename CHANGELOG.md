@@ -8,7 +8,8 @@ This changelog is looser than most, as it's tracking HEAD on a git branch.
 
 - When a library (`--lib`) and intended to be published, adds `CHANGELOG.md`
 - Added `RUSTDOCFLAGS="-D warnings"` and `cargo just doc-check`
-- `.vscode/settings.json`
+- Added `.vscode/settings.json`
+- Added `--all-features` to `cargo just coverage*`
 
 ### Changed
 
