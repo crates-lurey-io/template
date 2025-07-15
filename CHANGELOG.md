@@ -2,12 +2,13 @@
 
 This changelog is looser than most, as it's tracking HEAD on a git branch.
 
-## [Current] - 2025-07-14
+## 2025-07-14
 
 ### Added
 
 - When a library (`--lib`) and intended to be published, adds `CHANGELOG.md`
 - Added `RUSTDOCFLAGS="-D warnings"` and `cargo just doc-check`
+- `.vscode/settings.json`
 
 ### Changed
 
