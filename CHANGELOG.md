@@ -2,6 +2,12 @@
 
 This changelog is looser than most, as it's tracking HEAD on a git branch.
 
+## 2025-07-19
+
+### Changed
+
+- Various `cargo just ...` commands now pass `--all-features`
+
 ## 2025-07-14
 
 ### Added
